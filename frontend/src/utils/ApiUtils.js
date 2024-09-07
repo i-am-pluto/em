@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:5000/api';
+const BASE_URL = 'https://em-production-36eb.up.railway.app/api';
 const USERS_URL = `${BASE_URL}/users`;
 const EVENTS_URL = `${BASE_URL}/events`;
 const ADMIN_URL = `${BASE_URL}/admin`;
