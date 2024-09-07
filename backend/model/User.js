@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
-// User Schema
+
 const userSchema = mongoose.Schema({
   username: {
     type: String,
     required: true,
-    unique: true, // Username must be unique
+    unique: true, 
   },
   password: {
     type: String,
@@ -14,14 +14,14 @@ const userSchema = mongoose.Schema({
   isAdmin: {
     type: Boolean,
     required: true,
-    default: false, // By default, users are not admins
+    default: false, 
   },
   registeredEvents: [{
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Event', // References Event model
+    ref: 'Event', 
   }],
 }, {
-  timestamps: true, // Automatically adds createdAt and updatedAt fields
+  timestamps: true, 
 });
 
 const User = mongoose.model('User', userSchema);

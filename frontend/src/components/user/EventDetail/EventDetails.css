@@ -1,0 +1,52 @@
+/* Container for the event details page */
+.event-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  
+  /* Event thumbnail styling */
+  .event-thumbnail img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  /* Event info styling */
+  .event-info {
+    padding: 0 20px;
+  }
+  
+  /* Event name */
+  .event-info h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  /* Event date */
+  .event-date {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  /* Event description */
+  .event-description {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.5;
+  }
+  

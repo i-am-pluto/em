@@ -1,9 +1,9 @@
 const express = require('express');
-const Event = require('../model/Event'); // Import the Event model
+const Event = require('../model/Event'); 
 
 const router = express.Router();
 
-// Route to get all events
+
 router.get('/', async (req, res) => {
   try {
     const events = await Event.find({});
@@ -13,12 +13,10 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Route to filter events by month and year
+
 router.get('/filter', async (req, res) => {
   const { month, year } = req.query;
-
   try {
-    // Parse month and year to integers
     const parsedMonth = parseInt(month);
     const parsedYear = parseInt(year);
 
@@ -26,10 +24,9 @@ router.get('/filter', async (req, res) => {
       return res.status(400).json({ message: 'Invalid month or year' });
     }
 
-    // Get the start and end date for filtering
-    const startDate = new Date(parsedYear, parsedMonth - 1, 1); // First day of the month
-    const endDate = new Date(parsedYear, parsedMonth, 0); // Last day of the month
-    // Find events that occur within the specified month and year
+    const startDate = new Date(parsedYear, parsedMonth - 1, 1); 
+    const endDate = new Date(parsedYear, parsedMonth, 0); 
+    
     const events = await Event.find({
       date: {
         $gte: startDate,
@@ -43,7 +40,7 @@ router.get('/filter', async (req, res) => {
   }
 });
 
-// Route to get an event by ID
+
 router.get('/:eventId', async (req, res) => {
   const { eventId } = req.params;
 

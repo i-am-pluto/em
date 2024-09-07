@@ -1,7 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
-const cors = require('cors'); // Import cors
+const cors = require('cors'); 
 
 dotenv.config();
 
@@ -9,7 +9,7 @@ connectDB();
 
 const app = express();
 
-// Enable CORS for all origins
+
 app.use(cors());
 
 app.use(express.json());

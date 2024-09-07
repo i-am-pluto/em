@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-// Event Schema
+
 const eventSchema = mongoose.Schema({
   name: {
     type: String,
@@ -16,10 +16,10 @@ const eventSchema = mongoose.Schema({
   },
   thumbnail: {
     type: String,
-    required: false, // Thumbnail is optional, can be a placeholder
+    required: false, 
   },
 }, {
-  timestamps: true, // Automatically adds createdAt and updatedAt fields
+  timestamps: true, 
 });
 
 const Event = mongoose.model('Event', eventSchema);
