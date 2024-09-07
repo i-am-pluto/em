@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import EventCard from './../user/EventList/EventCard'; // Reuse EventCard component
-import { getAllEvents, removeEvent, addEvent } from '../../utils/ApiUtils'; // Import the API methods
+import EventCard from './../user/EventList/EventCard'; 
+import { getAllEvents, removeEvent, addEvent } from '../../utils/ApiUtils'; 
 
 function AdminPage() {
-    const [events, setEvents] = useState([]); // State to store event list
+    const [events, setEvents] = useState([]); 
     const [newEvent, setNewEvent] = useState({
         name: '',
         description: '',
@@ -26,18 +26,16 @@ function AdminPage() {
         fetchEvents();
     }, []);
 
-    // Handle delete event
     const handleDelete = async (eventId) => {
         try {
-            await removeEvent(eventId); // Call the backend to delete the event
-            await fetchEvents(); // Fetch the updated list of events
+            await removeEvent(eventId);
+            await fetchEvents(); 
             console.log(`Deleted event with ID: ${eventId}`);
         } catch (error) {
             console.error('Error deleting event:', error);
         }
     };
 
-    // Handle add event form submission
     const handleAddEvent = async (e) => {
         e.preventDefault();
 
@@ -135,7 +133,6 @@ function AdminPage() {
                         </div>
                     </div>
 
-                    {/* Event Thumbnail */}
                     <div>
                         <label className="block text-gray-700 font-medium mb-2">Thumbnail URL</label>
                         <input
@@ -147,7 +144,6 @@ function AdminPage() {
                         />
                     </div>
 
-                    {/* Submit Button */}
                     <button
                         type="submit"
                         className="w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-md hover:bg-blue-700 transition duration-300"
@@ -161,7 +157,6 @@ function AdminPage() {
                     {events.map(event => (
                         <div key={event._id} className="relative">
                             <EventCard event={event} />
-                            {/* Delete Button */}
                             <button
                                 onClick={() => handleDelete(event._id)}
                                 className="absolute top-4 right-4 bg-red-500 text-white font-bold py-1 px-4 rounded hover:bg-red-600 transition duration-300"

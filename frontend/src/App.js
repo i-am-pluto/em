@@ -11,7 +11,7 @@ import { UserProvider } from './UserContext'; // Import UserProvider
 
 function App() {
   return (
-    <UserProvider> {/* Wrap your app with UserProvider */}
+    <UserProvider>
       <Router>
         <div className="min-h-screen bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300">
           <Navbar />

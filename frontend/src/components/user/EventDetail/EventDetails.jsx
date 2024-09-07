@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import { getEventById, registerForEvent, getRegisteredEvents } from '../../../utils/ApiUtils'; // Import the API methods
-import { UserContext } from './../../../UserContext'; // Import UserContext for user info
+import { getEventById, registerForEvent, getRegisteredEvents } from '../../../utils/ApiUtils'; 
+import { UserContext } from './../../../UserContext';
 
 function EventDetails() {
   const { id } = useParams();
-  const { user } = useContext(UserContext); // Get the logged-in user from context
+  const { user } = useContext(UserContext);
   const [event, setEvent] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [isRegistered, setIsRegistered] = useState(false); // State to track if the user is already registered
+  const [isRegistered, setIsRegistered] = useState(false); 
 
   useEffect(() => {
     const fetchEventData = async () => {
@@ -18,7 +18,6 @@ function EventDetails() {
         setEvent(fetchedEvent);
         
         if (user) {
-          // Check if the event is in the user's registeredEvents array
           console.log(user.registeredEvents, fetchedEvent._id);
           const alreadyRegistered = ((await getRegisteredEvents(user._id)).map((event) => event._id )).includes(fetchedEvent._id);
           console.log("already registered - ",alreadyRegistered, await getRegisteredEvents(user._id));
@@ -41,9 +40,9 @@ function EventDetails() {
       return;
     }
     try {
-      await registerForEvent(user._id, event._id); // Call API to register for the event
+      await registerForEvent(user._id, event._id); 
       alert('Successfully registered for the event!');
-      setIsRegistered(true); // Disable the button after registering
+      setIsRegistered(true); 
     } catch (err) {
       console.error('Error registering for event:', err);
       alert('Failed to register for the event.');
@@ -51,7 +50,7 @@ function EventDetails() {
   };
 
   const handleShare = () => {
-    const eventUrl = window.location.href; // Get the current URL
+    const eventUrl = window.location.href;
 
     if (navigator.share) {
       navigator.share({
@@ -62,7 +61,6 @@ function EventDetails() {
         .then(() => console.log('Event shared successfully!'))
         .catch((error) => console.error('Error sharing event:', error));
     } else {
-      // Fallback for browsers that don't support the Web Share API
       navigator.clipboard.writeText(eventUrl)
         .then(() => alert('Event URL copied to clipboard!'))
         .catch((error) => console.error('Error copying URL to clipboard:', error));
@@ -106,7 +104,7 @@ function EventDetails() {
         <div className="flex space-x-4">
           <button
             onClick={handleRegister}
-            disabled={isRegistered} // Disable button if the user is already registered
+            disabled={isRegistered}
             className={`${
               isRegistered ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'
             } text-white font-bold py-2 px-6 rounded transition duration-300`}
