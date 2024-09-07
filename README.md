@@ -45,7 +45,7 @@ The backend is a Node.js application that uses MongoDB for data storage. You'll 
 
     ```env
     PORT=5000
-    MONGO_URI=mongodb+srv://impluto0096:0ieOFLfOc82vNP9y@cluster0.of92ppg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+    MONGO_URI=mongo-uri
     ```
 
 4. **Start the backend server:**
