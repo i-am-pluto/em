@@ -1,3 +1,10 @@
+# vercel url
+[application](https://em-black.vercel.app/events)
+
+# admin login details
+    email - admin@admin
+    password - admin
+
 # Project Setup - MERN Stack (React + Node.js)
 
 This project consists of two main parts:
@@ -90,52 +97,3 @@ The frontend is a React application. You will need to install the dependencies a
 The frontend will communicate with the backend through the `/api` endpoints exposed by the Node.js server.
 
 ---
-
-## Common Commands
-
-### Backend (Node.js)
-
-- **Install dependencies**: `npm install`
-- **Start the server**: `npm start`
-- **Run in development mode**: `npm run dev`
-
-### Frontend (React)
-
-- **Install dependencies**: `npm install`
-- **Start the development server**: `npm start`
-- **Build for production**: `npm run build`
-
----
-
-## Project Structure
-
-### Frontend Directory
-
-```
-frontend/
-  ├── public/
-  ├── src/
-  ├── .env
-  ├── package.json
-  └── README.md
-```
-
-### Backend Directory
-
-```
-backend/
-  ├── models/
-  ├── routes/
-  ├── config/
-  ├── .env
-  ├── package.json
-  ├── server.js
-  └── README.md
-```
-
----
-
-## Notes
-
-- Ensure your MongoDB connection string in the `.env` file is correct and accessible.
-- The backend runs on port `5000` by default, while the frontend runs on port `3000`.
